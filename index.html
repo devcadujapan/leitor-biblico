@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0e0f1f">
+  <title>Leitura da Bíblia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="bg" aria-hidden="true">
+    <span class="blob b1"></span>
+    <span class="blob b2"></span>
+    <span class="blob b3"></span>
+  </div>
+
+  <main class="app" id="app">
+
+    <header class="top">
+      <div class="ring" role="img" aria-label="Progresso geral de leitura">
+        <svg viewBox="0 0 80 80" width="88" height="88">
+          <defs>
+            <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#6ea8ff"/>
+              <stop offset="50%" stop-color="#c77dff"/>
+              <stop offset="100%" stop-color="#ffb86b"/>
+            </linearGradient>
+          </defs>
+          <circle class="ring-track" cx="40" cy="40" r="34"/>
+          <circle class="ring-fill" id="ringFill" cx="40" cy="40" r="34" transform="rotate(-90 40 40)"/>
+        </svg>
+        <div class="ring-num"><span id="pct">0</span><small>%</small></div>
+      </div>
+
+      <div class="top-text">
+        <h1>Leitura da Bíblia</h1>
+        <p id="summary">0 de 1189 capítulos lidos</p>
+      </div>
+    </header>
+
+    <div class="tabs" role="tablist" aria-label="Testamentos">
+      <span class="tab-indicator" id="tabIndicator"></span>
+      <button class="tab is-active" role="tab" id="tab-at" aria-selected="true" aria-controls="panel-at" data-target="at">
+        <span class="tab-name">Antigo Testamento</span>
+        <span class="tab-pct" id="pct-at">0%</span>
+      </button>
+      <button class="tab" role="tab" id="tab-nt" aria-selected="false" aria-controls="panel-nt" data-target="nt">
+        <span class="tab-name">Novo Testamento</span>
+        <span class="tab-pct" id="pct-nt">0%</span>
+      </button>
+    </div>
+
+    <div class="scroll" id="scroll">
+      <section class="panel" id="panel-at" role="tabpanel" aria-labelledby="tab-at"></section>
+      <section class="panel" id="panel-nt" role="tabpanel" aria-labelledby="tab-nt" hidden></section>
+    </div>
+
+    <footer class="foot">
+      <button class="link-btn" id="resetAll" type="button">Limpar todo o progresso</button>
+    </footer>
+
+  </main>
+
+  <canvas id="confetti" aria-hidden="true"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>
